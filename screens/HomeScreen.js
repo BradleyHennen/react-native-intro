@@ -2,6 +2,7 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
+  Button,
   Platform,
   ScrollView,
   StyleSheet,
@@ -18,39 +19,29 @@ export default function HomeScreen() {
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
+
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
 
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
+          <View>
+            <Text style={styles.headerText}>Customer Payment Log</Text>
           </View>
 
           <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
+            Please Select A Year Below
           </Text>
         </View>
 
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <Button
+          // onPress={onPressLearnMore}
+          style={styles.button}
+          title="2018"
+          accessibilityLabel="Learn more about this purple button"
+        />
+
+        {/* <FlatList
+          data={[{title: 'Title Text', key: 'item1'}]}
+          renderItem={({item}) => <ListItem title={item.title} />}
+        /> */}
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -122,10 +113,11 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
+    
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 30,
     marginBottom: 20,
   },
   welcomeImage: {
@@ -151,9 +143,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
-    fontSize: 17,
+    marginTop: 20,
+    fontSize: 25,
     color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
+    // lineHeight: 24,
     textAlign: 'center',
   },
   tabBarInfoContainer: {
@@ -183,6 +176,10 @@ const styles = StyleSheet.create({
   },
   navigationFilename: {
     marginTop: 5,
+  },
+  headerText: {
+    fontSize: 35,
+    fontFamily: 'AppleSDGothicNeo-SemiBold',
   },
   helpContainer: {
     marginTop: 15,
